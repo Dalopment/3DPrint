@@ -1,0 +1,25 @@
+*{ 
+  margin: 0;    /* Elimina margenes y padding por defecto*/
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html{
+  margin: 0;  /* Elimina margenes y padding */
+  padding: 0;
+  width: 100%;  /*Ocupa el 100% del ancho y alto de la ventana*/
+  height: 100%;
+  font-family: 'Poppins', sans-serif;  /*Tipografia aplicada por defecto a toda la app*/
+}
+
+#root{  /*Contenedor principal de toda la app */
+  display: flex;
+  flex-direction: column; /*Apila en vertical*/
+  min-height: 100vh;  /*El contenedor ocupa al menos el 100% de la altura de la ventana*/ 
+}
+
+.main-content{
+  flex: 1;  /*Crece para ocupar todo el espacio entre el navbar y el footer*/
+  margin-top: 70px; /*Compensar altura del navbar*/
+  width: 100%;  /*Ancho completo*/
+}
