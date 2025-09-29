@@ -1,26 +1,24 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 #root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ocupa toda la altura de la ventana */
+}
+
+.main-content {
+  flex: 1; /* crece para empujar el footer abajo */
+  padding-top: 80px; /* para compensar el navbar */
+}
+
+/* Tu max-width y centrado solo dentro del contenido */
+.main-wrapper {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
-
-.main-content {
-  padding-top: 70px; /* Ajusta según la altura real de tu navbar */
-}
-
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
 }

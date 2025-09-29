@@ -1,0 +1,172 @@
+/* ===========================
+   Footer general
+=========================== */
+.footer {
+  background-color: #000507;
+  color: white;
+  padding: 3rem 5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===========================
+   Contenedor de columnas
+=========================== */
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  gap: 2rem;
+}
+
+/* ===========================
+   Cada columna
+=========================== */
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 150px;
+}
+
+/* Primera columna: alineada a la izquierda */
+.footer-column:nth-child(1) {
+  justify-self: start;
+  align-items: flex-start;
+  padding-left: 5rem;              /* Mejor usar padding que margin */
+}
+
+/* Segunda columna: centrada */
+.footer-column:nth-child(2) {
+  justify-self: center;
+  align-items: center;
+}
+
+/* Tercera columna: alineada a la derecha */
+.footer-column:nth-child(3) {
+  justify-self: end;
+  align-items: flex-start;
+  padding-right: 5rem;             /* Mejor usar padding que margin */
+}
+
+/* ===========================
+   Contactos
+=========================== */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.icono-mail,
+.icono-phone,
+.icono-location {
+  font-size: 18px;
+  color: aquamarine;
+  flex-shrink: 0;                  /* Evita que los iconos se compriman */
+}
+
+.contact-item a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;     /* Añade transición suave */
+}
+
+.contact-item a:hover {
+  color: aquamarine;               /* Feedback visual al hover */
+}
+
+/* Para ubicación con icono y texto */
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* ===========================
+   Segunda columna: imagen + descripción
+=========================== */
+.info-image img {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.info-description p {
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  white-space: pre-line;
+  max-width: 300px;
+  margin: 0;                       /* Simplificado */
+}
+
+/* ===========================
+   Botón personalizado
+=========================== */
+.boton-personalizado {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: white;
+  background-color: orange;
+  border: 1px solid orange;
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: all 0.3s ease;       /* Transición suave */
+  cursor: pointer;                 /* Indica que es clickeable */
+}
+
+.boton-personalizado:hover {
+  color: black;
+  background-color: darkorange;
+  transform: translateY(-2px);     /* Efecto de elevación sutil */
+}
+
+/* ===========================
+   Tercera columna: redes sociales
+=========================== */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* ===========================
+   Responsivo: móviles
+=========================== */
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 1.5rem;          /* Reduce padding en móvil */
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 2rem;
+  }
+
+  .footer-column {
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Resetea padding y alineaciones en móvil */
+  .footer-column:nth-child(1),
+  .footer-column:nth-child(3) {
+    justify-self: center;
+    padding-left: 0;               /* Quita padding lateral */
+    padding-right: 0;
+  }
+
+  .info-description p {
+    max-width: 100%;
+  }
+
+  .info-image img {
+    margin-bottom: 1rem;
+  }
+}

@@ -6,6 +6,10 @@ import { NavLink } from 'react-router-dom';
 import './BarraNavegacion.css';
 // Importa el icono de carrito de react-icons
 import { BsCartFill } from 'react-icons/bs';
+//Importa el componente BotonPersonalizado
+import { BotonPersonalizado } from "./BotonPersonalizado";
+
+
 
 // Componente BarraNavegacion
 export const BarraNavegacion = () => {
@@ -37,10 +41,12 @@ export const BarraNavegacion = () => {
                 <NavLink className="nav-micuenta" to="/micuenta">MI CUENTA</NavLink>
                 
                 {/* Link a Carrito con icono y estilo específico */}
-                <NavLink className="nav-carrito" to="/carrito">
-                    <BsCartFill/> {/* Icono de carrito */}
-                    CARRITO {/* Texto del link */}
-                </NavLink>
+                <BotonPersonalizado 
+                    texto="CESTA" 
+                    ruta="/contacto" 
+                    icono={BsCartFill} 
+                    gap="1rem" 
+                />
             </div>
         </div>
     </nav>
