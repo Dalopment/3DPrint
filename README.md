@@ -1,16 +1,101 @@
-# React + Vite
+# 3DPrint 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Estado](https://img.shields.io/badge/Estado-En%20Desarrollo-yellow)](https://github.com/Dalopment/3DPrint.git)
+[![Licencia](https://img.shields.io/badge/Licencia-MIT-blue)](LICENSE)
+[![Node.js](https://img.shields.io/badge/Node.js-v18-green)](https://nodejs.org/)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📖 Sobre el proyecto
 
-## React Compiler
+**3DPrint** es una aplicación web de **final de curso DAW** que permite a los usuarios:
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- Subir sus propios modelos 3D para impresión.
+- Comprar filamentos y modelos 3D.
+- Gestionar su cuenta, carrito y pedidos.
 
-## Expanding the ESLint configuration
+El objetivo del proyecto es combinar **interactividad web** con **funcionalidades de e-commerce** y servicios de impresión 3D, utilizando **React en el frontend** y **PHP + MySQL en el backend**.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🎨 Capturas de pantalla
+
+![Home](./screenshots/home.png)
+![Tienda](./screenshots/tienda.png)
+![Carrito](./screenshots/carrito.png)
+
+> Añade capturas reales de tu aplicación en la carpeta `screenshots`.
+
+---
+
+## ⚙️ Tecnologías utilizadas
+
+- **Frontend:** React, React Router, React Icons, Bootstrap
+- **Backend:** PHP
+- **Base de datos:** MySQL
+- **Estilos:** CSS personalizado
+
+---
+
+## 🛠️ Instalación y ejecución
+
+### Backend
+
+1. Configura un servidor PHP (XAMPP, WAMP o similar).
+2. Importa la base de datos MySQL desde el archivo `database.sql`.
+3. Configura la conexión a la base de datos en el backend PHP.
+
+### Frontend
+
+1. Clonar el repositorio:
+
+```bash
+git clone https://github.com/Dalopment/3DPrint.git
+Entrar en la carpeta del proyecto:
+
+bash
+Copiar código
+cd 3DPrint
+Instalar dependencias:
+
+bash
+Copiar código
+npm install
+Ejecutar la aplicación en modo desarrollo:
+
+bash
+Copiar código
+npm start
+Abrir en el navegador: http://localhost:5173
+
+🧩 Estructura del proyecto
+csharp
+Copiar código
+3DPrint/
+│
+├── backend/           # Archivos PHP
+├── database.sql       # Script de MySQL
+├── public/
+│   └── images/        # Logos y assets
+├── src/
+│   ├── components/    # Componentes React (Navbar, Cards...)
+│   ├── pages/         # Páginas (Home, Tienda, Carrito...)
+│   ├── App.jsx        # Componente principal
+│   └── index.jsx      # Punto de entrada
+├── package.json
+└── README.md
+🚀 Funcionalidades principales
+Navbar con rutas a todas las secciones.
+
+Carrito de compras con icono y total.
+
+Páginas de productos y detalles.
+
+Subida de modelos 3D por usuarios.
+
+Gestión de usuario y sesión.
+
+Integración con backend PHP y base de datos MySQL.
+
+📝 Licencia
+Este proyecto está bajo la licencia MIT - mira el archivo LICENSE para más detalles.
