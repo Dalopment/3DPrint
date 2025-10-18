@@ -1,0 +1,10 @@
+.linknavegacioncss{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+}
+
+.linknavegacioncss:hover{
+    color: orange;
+}

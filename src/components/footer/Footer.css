@@ -1,0 +1,71 @@
+.footer-container{
+    display: flex;
+    align-items: center;
+    padding: 3rem 12rem;
+    justify-content: space-between;
+}
+
+.columna-uno{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.columna-uno a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.columna-uno .a-location{
+    align-items: baseline;
+}
+
+.icono{
+    color: #00B7B4;
+    font-size: 18px;
+}
+
+.columna-dos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    gap: 2rem;
+}
+
+.footer-img{
+    max-width: 200px;
+    height: auto;
+}
+
+.texto{
+    text-align: center;
+    color: white;
+}
+
+.columna-tres{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.logospagos img {
+    width: 250px;   /* Ajusta el tamaño que quieras */
+    height: 40px;  /* Mantener proporción o ajustar a tu gusto */
+    object-fit: contain; /* Evita deformación */
+}
+
+.logospagos {
+    display: flex;
+    gap: 0.5rem; /* separa los iconos */
+    align-items: center;
+}
+
+
+
+

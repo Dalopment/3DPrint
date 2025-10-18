@@ -1,0 +1,16 @@
+.botonmicuentacss {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  border: 1px solid white;
+  border-radius: 4px; /* opcional, para esquinas redondeadas */
+  padding: 0.2rem 1.8rem;
+  transition: all 0.3s ease;
+}
+
+.botonmicuentacss:hover{
+    color: orange;
+    transform: translateY(-3px);
+}
+
