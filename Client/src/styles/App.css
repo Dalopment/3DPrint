@@ -1,0 +1,77 @@
+.header-content {
+    height: auto;
+}
+
+.main-content {
+    flex: 1;
+}
+
+.footer-content {
+    height: auto;
+    min-height: 320px;
+    background-color: #080000;
+}
+
+/* MEDIA QUERIES - Tablets y pantallas medianas */
+@media (max-width: 992px) {
+    .header-img {
+        height: 80px;
+        margin-left: 0.5rem;
+    }
+
+    .header-nav {
+        gap: 1rem;
+        margin-right: 0.5rem;
+    }
+
+    .footer-content {
+        min-height: 300px;
+    }
+}
+
+/* MEDIA QUERIES - Móviles */
+@media (max-width: 768px) {
+    .header-container {
+        flex-wrap: wrap;
+        padding: 0.5rem;
+    }
+
+    .header-img {
+        height: 70px;
+        margin-left: 0.5rem;
+    }
+
+    .header-nav {
+        gap: 0.5rem;
+        margin-right: 0.5rem;
+        width: 100%;
+        justify-content: space-around;
+        order: 3;
+    }
+
+    .header-content {
+        height: auto;
+    }
+
+    .footer-content {
+        min-height: auto;
+    }
+}
+
+/* MEDIA QUERIES - Móviles pequeños */
+@media (max-width: 480px) {
+    .header-img {
+        height: 60px;
+        margin-left: 0;
+    }
+
+    .header-nav {
+        gap: 0.3rem;
+        margin-right: 0;
+        font-size: 0.85rem;
+    }
+
+    .footer-content {
+        min-height: auto;
+    }
+}

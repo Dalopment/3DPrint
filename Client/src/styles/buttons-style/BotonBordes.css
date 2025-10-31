@@ -1,0 +1,38 @@
+.botonbordescss {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  border: 1px solid #F66249;
+  border-radius: 4px;
+  padding: 0.5rem 1.5rem;
+  background-color: #F66249;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.botonbordescss:hover {
+    color: black;
+    background-color: #fba08a;
+    transform: translateY(-3px);
+}
+
+/* MEDIA QUERIES - Móviles */
+@media (max-width: 768px) {
+    .botonbordescss {
+        font-size: 16px;
+        padding: 0.4rem 1.2rem;
+    }
+}
+
+/* MEDIA QUERIES - Móviles pequeños */
+@media (max-width: 480px) {
+    .botonbordescss {
+        font-size: 14px;
+        padding: 0.3rem 1rem;
+    }
+}
