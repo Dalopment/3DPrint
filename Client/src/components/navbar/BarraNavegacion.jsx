@@ -1,12 +1,8 @@
-// Importa React para poder usar JSX
-import React from 'react';
-// Importa NavLink de react-router-dom para navegación entre rutas
 import { NavLink } from 'react-router-dom';
-// Importa el archivo CSS específico del navbar
-import './BarraNavegacion.css';
 import { LinkNavegacion } from './LinkNavegacion';
 import { BotonMiCuenta } from '../buttons/BotonMiCuenta';
 import { BotonCarrito } from '../buttons/BotonCarrito';
+import '../../styles/navbar-style/BarraNavegacion.css';
 
 
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import './BotonMiCuenta.css';
+import '../../styles/buttons-style/BotonMiCuenta.css';
 
 export const BotonMiCuenta = ({ruta, texto}) => {
   return (

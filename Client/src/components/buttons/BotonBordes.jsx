@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import './BotonBordes.css';
+import '../../styles/buttons-style/BotonBordes.css';
 
 export const BotonBordes = ({ruta, texto}) => {
   return (

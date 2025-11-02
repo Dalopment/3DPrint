@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { FaLink } from 'react-icons/fa';
-import './LinkNavegacionFooter.css';
+import '../../styles/footer-style/LinkNavegacionFooter.css';
 
 export const LinkNavegacionFooter = ({ruta, texto}) => {
   return (

@@ -1,5 +1,4 @@
-import './BotonGenerico.css';
-
+import '../../styles/buttons-style/BotonGenerico.css';
 
 export const BotonGenerico = ({texto, onClick, type="button"}) => {
   return (

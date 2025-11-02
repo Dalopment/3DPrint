@@ -1,5 +1,5 @@
 .h3-contacto{
-    padding: 2rem;
+    margin-bottom: 5rem;
 }
 
 .container-contacto{
@@ -7,10 +7,16 @@
 }
 
 .c1{
-    margin-top: 15rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
     width: 45%;
     height: auto;
     margin-left: 2rem;
+}
+
+.text-form{
+    margin-bottom: 50px;
 }
 
 .c2{
@@ -28,3 +34,35 @@
     mask-composite: intersect;
     -webkit-mask-composite: source-in;
 }
+
+form + span{
+    margin-top: 5rem;
+}
+
+hr + span + span{
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+hr + span + span + span{
+    font-weight: bold;
+}
+
+hr {
+  border: none;              /* quita el borde por defecto */
+  height: 2px;               /* grosor de la línea */
+  background-color: #000;    /* color */
+  margin: 2rem 0;            /* espacio arriba y abajo */
+  margin-top: 0.2rem;
+}
+
+.c1 span{
+    font-size: 14px;
+}
+
+.c1 span:last-child{
+    color: #00B7B4;
+    margin-bottom: 5rem;
+}
+
+

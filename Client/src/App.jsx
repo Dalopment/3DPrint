@@ -1,20 +1,15 @@
-// Importa React para poder usar JSX
-import React from 'react';
-// Importa componentes de React Router para manejo de rutas
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// Importa el componente de la barra de navegación
-// Importa el componente del footer
 import Home from './pages/Home';
-import Contacto from './pages/Contacto';
+import Contacto from './pages/contacto/Contacto';
 import Materiales from './pages/Materiales';
 import MiCuenta from './pages/MiCuenta';
 import Modelado3D from './pages/Modelado3D';
 import Tienda from './pages/Tienda';
 import Carrito from './pages/Carrito';
-import './App.css';
 import { BarraNavegacion } from './components/navbar/BarraNavegacion';
 import { Footer } from './components/footer/Footer';
 import EnviosYDevoluciones from './pages/EnviosYDevoluciones';
+import '../src/styles/App.css';
 
 // Componente principal de la aplicación
 function App() {

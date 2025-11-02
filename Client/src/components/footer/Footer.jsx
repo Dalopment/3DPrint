@@ -1,12 +1,10 @@
-import React from 'react'
-import './Footer.css';
 import { MdEmail } from 'react-icons/md';
 import { FaPhoneSquareAlt } from 'react-icons/fa';
 import { FaLocationArrow } from 'react-icons/fa';
 import { BotonBordes } from '../buttons/BotonBordes';
 import { NavLink } from 'react-router-dom';
-import { FaLink } from 'react-icons/fa';
 import { LinkNavegacionFooter } from './LinkNavegacionFooter';
+import '../../styles/footer-style/Footer.css';
 
 
 
