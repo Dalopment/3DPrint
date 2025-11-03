@@ -1,0 +1,97 @@
+.container-materialcard {
+  display: flex;
+  flex-direction: row; 
+  align-items: center; /* Centra verticalmente imagen y el bloque de texto */
+  gap: 20px;           /* Espacio entre imagen, texto y botón */
+  width: 750px;
+  height: 150px;
+  border: 2px solid #BFBFBF;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.image-card {
+  width: 120px;
+  height: 120px;
+  object-fit: cover; 
+  border-radius: 8px;
+  flex-shrink: 0; 
+}
+
+.text-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  flex-grow: 1;
+}
+
+.mas-info {
+  margin-left: auto;
+  margin-right: 15px;
+  font-weight: bold;
+  color: #007bff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.mas-info:hover {
+  color: #0056b3;
+}
+
+/* --- Modal --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  max-width: 850px;
+  text-align: center;
+  border: 2px solid #bfbfbf;
+  font-family: Arial, sans-serif;
+}
+
+.modal-content p {
+  white-space: pre-line;
+}
+
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.modal-content p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.close-btn {
+  margin: 20px auto 0;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 150px;
+  display: block;
+}
+
+.close-btn:hover {
+  background-color: #0056b3;
+}

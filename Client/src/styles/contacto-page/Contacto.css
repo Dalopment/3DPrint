@@ -39,13 +39,24 @@ form + span{
     margin-top: 5rem;
 }
 
-hr + span + span{
+hr + span + a{
     margin-top: 0.5rem;
     font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+    color: #00B7B4;
 }
 
-hr + span + span + span{
+hr + span + a + a{
     font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+    color: #00B7B4;
+}
+
+hr + span + span{
+    font-weight: bold;
+    color: black;
 }
 
 hr {
@@ -60,7 +71,7 @@ hr {
     font-size: 14px;
 }
 
-.c1 span:last-child{
+.c1 a:last-child{
     color: #00B7B4;
     margin-bottom: 5rem;
 }

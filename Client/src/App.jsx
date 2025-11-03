@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Contacto from './pages/contacto/Contacto';
-import Materiales from './pages/Materiales';
+import Materiales from './pages/materiales/Materiales';
 import MiCuenta from './pages/MiCuenta';
 import Modelado3D from './pages/Modelado3D';
 import Tienda from './pages/Tienda';

@@ -1,0 +1,17 @@
+.explora-materiales{
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.grid-material-card {
+  display: flex;
+  justify-content: center; /* ✅ alineación al borde izquierdo */
+  flex-wrap: wrap; /* permite que bajen a otra fila */
+  gap: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+
+

@@ -2,6 +2,7 @@ import Form from 'react-bootstrap/Form';
 import { BotonGenerico } from '../../components/buttons/BotonGenerico';
 import { useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
+import '../../styles/contacto-page/Formulario.css';
 
 function Formulario() {
   // Guardar los valores que el usuario escribe en los campos
@@ -42,7 +43,7 @@ function Formulario() {
 
       // Verificar si el status es "success" (Como responde PHP)
       if(data.status === 'success'){
-        setMensaje({tipo: 'success', texto: '!Mensaje enviado correctamente'})
+        setMensaje({tipo: 'success', texto: '✅ Mensaje enviado correctamente'})
         // Limpiar el formulario
         setFormData({nombre:'', correo:'', asunto:''});
       }
@@ -52,7 +53,7 @@ function Formulario() {
       }
     }
     catch(error){   // Cuando no se puede conectar al servidor
-      setMensaje({tipo: 'danger', texto: 'Error de conexión con el servidor'});
+      setMensaje({tipo: 'danger', texto: '❌ Error de conexión con el servidor'});
       console.error('Error', error);    // Registra el error en la consola
     } 
     finally{    // Se ejecuta siempre, reactiva el formulario, pasa de "Enviando" a "Enviar"
@@ -110,7 +111,7 @@ function Formulario() {
 
       {/*Mostrar mensaje de estado */}
       {mensaje.texto && (
-        <Alert variant={mensaje.tipo} dismissible onClose={() => setMensaje({tipo: '', texto: ''})}>
+        <Alert variant={mensaje.tipo} dismissible onClose={() => setMensaje({tipo: '', texto: ''})} className='mensaje_alerta'>
           {mensaje.texto}
         </Alert>
       )}
