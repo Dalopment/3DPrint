@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import '../../styles/navbar-style/LinkNavegacion.css';
+import '../../styles/components/navbar-style/LinkNavegacion.css';
 
 export const LinkNavegacion = ({ruta, texto}) => {
   return (

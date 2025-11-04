@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { LinkNavegacion } from './LinkNavegacion';
 import { BotonMiCuenta } from '../buttons/BotonMiCuenta';
 import { BotonCarrito } from '../buttons/BotonCarrito';
-import '../../styles/navbar-style/BarraNavegacion.css';
+import '../../styles/components/navbar-style/BarraNavegacion.css';
 
 
 
@@ -18,7 +18,6 @@ export const BarraNavegacion = () => {
         {/* Contenedor de los componentes LinkNavegacion */}
         <div className='header-nav'>3
         <LinkNavegacion ruta="/materiales" texto="MATERIALES"/>
-        <LinkNavegacion ruta="/modelado3D" texto="MODELADO 3D"/>
         <LinkNavegacion ruta="/tienda" texto="TIENDA"/>
         <LinkNavegacion ruta="/contacto" texto="CONTACTO"/>
         <BotonMiCuenta ruta="/micuenta" texto="MI CUENTA"/>

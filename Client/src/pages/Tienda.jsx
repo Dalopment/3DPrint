@@ -1,7 +1,12 @@
-import React from 'react';
+import { ProductosList } from "../components/pages/tienda/ProductosList";
 
-const Tienda = () => {
-  return <h1>Tienda</h1>;
-};
+function Tienda() {
+  return (
+    <div>
+      <h1 style={{ textAlign: "center", marginTop: "40px" }}>🛒 Tienda 3DPrint</h1>
+      <ProductosList />
+    </div>
+  );
+}
 
 export default Tienda;

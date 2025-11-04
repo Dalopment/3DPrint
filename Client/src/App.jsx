@@ -3,7 +3,6 @@ import Home from './pages/Home';
 import Contacto from './pages/contacto/Contacto';
 import Materiales from './pages/materiales/Materiales';
 import MiCuenta from './pages/MiCuenta';
-import Modelado3D from './pages/Modelado3D';
 import Tienda from './pages/Tienda';
 import Carrito from './pages/Carrito';
 import { BarraNavegacion } from './components/navbar/BarraNavegacion';
@@ -32,7 +31,6 @@ function App() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/materiales" element={<Materiales />} />
           <Route path="/micuenta" element={<MiCuenta />} />
-          <Route path="/modelado3D" element={<Modelado3D />} />
           <Route path="/tienda" element={<Tienda />} />
           <Route path='/enviosydevoluciones' element={<EnviosYDevoluciones />} />
         </Routes>

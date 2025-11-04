@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { FaShoppingBag } from 'react-icons/fa';
-import '../../styles/buttons-style/BotonCarrito.css';
+import '../../styles/components/buttons-style/BotonCarrito.css';
 
 export const BotonCarrito = ({ruta, texto}) => {
   return (
