@@ -1,5 +1,312 @@
 import { useEffect, useState } from "react";
 
+// Componente para cada tarjeta de producto
+const ProductCard = ({ producto }) => {
+  const [varianteSeleccionada, setVarianteSeleccionada] = useState(
+    producto.variantes[0] || null
+  );
+  const [cantidad, setCantidad] = useState(1);
+
+  if (!varianteSeleccionada) return null;
+
+  const handleAgregarCarrito = () => {
+    console.log("Añadiendo al carrito:", {
+      producto: producto.nombre,
+      variante: varianteSeleccionada.nombre_variante,
+      cantidad,
+      precio: varianteSeleccionada.precio,
+      total: (varianteSeleccionada.precio * cantidad).toFixed(2)
+    });
+    alert(
+      `✅ ${cantidad}x ${producto.nombre} - ${varianteSeleccionada.nombre_variante}\nTotal: ${(varianteSeleccionada.precio * cantidad).toFixed(2)} €`
+    );
+  };
+
+  return (
+    <div
+      style={{
+        border: "1px solid #ccc",
+        borderRadius: "12px",
+        width: "320px",
+        padding: "20px",
+        boxShadow: "2px 2px 8px rgba(0,0,0,0.1)",
+        backgroundColor: "white",
+      }}
+    >
+      {/* Badge de categoría */}
+      <div
+        style={{
+          backgroundColor: "#3b82f6",
+          color: "white",
+          padding: "5px 12px",
+          borderRadius: "6px",
+          fontSize: "12px",
+          fontWeight: "600",
+          textAlign: "center",
+          marginBottom: "10px",
+        }}
+      >
+        {producto.categoria}
+      </div>
+
+      {/* Título y Marca */}
+      <h3 style={{ textAlign: "center", marginBottom: "5px", fontSize: "20px" }}>
+        {producto.nombre}
+      </h3>
+      <p
+        style={{
+          textAlign: "center",
+          color: "#999",
+          fontSize: "13px",
+          marginBottom: "10px",
+        }}
+      >
+        {producto.marca}
+      </p>
+
+      {/* Descripción */}
+      <p
+        style={{
+          textAlign: "center",
+          color: "#666",
+          fontSize: "14px",
+          marginBottom: "15px",
+          minHeight: "40px",
+        }}
+      >
+        {producto.descripcion}
+      </p>
+
+      {/* Imagen */}
+      <div style={{ position: "relative", marginBottom: "15px" }}>
+        <img
+          src={varianteSeleccionada.imagen_url}
+          alt={varianteSeleccionada.nombre_variante}
+          style={{
+            width: "100%",
+            height: "200px",
+            objectFit: "cover",
+            borderRadius: "10px",
+          }}
+          onError={(e) => {
+            e.target.src = "https://via.placeholder.com/320x200?text=Sin+Imagen";
+          }}
+        />
+        {varianteSeleccionada.stock === 0 && (
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: "rgba(0,0,0,0.6)",
+              borderRadius: "10px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <span
+              style={{
+                backgroundColor: "#ef4444",
+                color: "white",
+                padding: "8px 16px",
+                borderRadius: "6px",
+                fontWeight: "bold",
+              }}
+            >
+              SIN STOCK
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* Selector de Variantes (Colores) */}
+      <div style={{ marginBottom: "15px" }}>
+        <p
+          style={{
+            fontSize: "14px",
+            fontWeight: "600",
+            marginBottom: "10px",
+            color: "#333",
+          }}
+        >
+          Variante: {varianteSeleccionada.nombre_variante}
+        </p>
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
+          {producto.variantes.map((variante) => (
+            <button
+              key={variante.id}
+              onClick={() => {
+                setVarianteSeleccionada(variante);
+                setCantidad(1); // Reset cantidad al cambiar variante
+              }}
+              style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                backgroundColor: variante.color_hex,
+                border:
+                  varianteSeleccionada.id === variante.id
+                    ? "3px solid #3b82f6"
+                    : "2px solid #ccc",
+                cursor: "pointer",
+                transition: "all 0.2s",
+                transform:
+                  varianteSeleccionada.id === variante.id
+                    ? "scale(1.15)"
+                    : "scale(1)",
+                boxShadow:
+                  varianteSeleccionada.id === variante.id
+                    ? "0 0 0 3px rgba(59, 130, 246, 0.2)"
+                    : "none",
+              }}
+              title={variante.nombre_variante}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Precio y Stock */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "15px",
+          padding: "10px",
+          backgroundColor: "#f9fafb",
+          borderRadius: "8px",
+        }}
+      >
+        <div>
+          <p style={{ fontSize: "24px", fontWeight: "bold", color: "#333" }}>
+            {varianteSeleccionada.precio.toFixed(2)} €
+          </p>
+          <p style={{ fontSize: "11px", color: "#999" }}>
+            SKU: {varianteSeleccionada.sku}
+          </p>
+        </div>
+        <p
+          style={{
+            fontSize: "14px",
+            color: varianteSeleccionada.stock > 0 ? "#22c55e" : "#ef4444",
+            fontWeight: "600",
+          }}
+        >
+          {varianteSeleccionada.stock > 0
+            ? `${varianteSeleccionada.stock} disponibles`
+            : "Sin stock"}
+        </p>
+      </div>
+
+      {/* Selector de Cantidad */}
+      {varianteSeleccionada.stock > 0 && (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "15px",
+            marginBottom: "15px",
+          }}
+        >
+          <span style={{ fontSize: "14px", fontWeight: "600", color: "#666" }}>
+            Cantidad:
+          </span>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              border: "1px solid #ccc",
+              borderRadius: "8px",
+              overflow: "hidden",
+            }}
+          >
+            <button
+              onClick={() => setCantidad(Math.max(1, cantidad - 1))}
+              style={{
+                padding: "8px 15px",
+                backgroundColor: "#f3f4f6",
+                border: "none",
+                cursor: "pointer",
+                fontWeight: "bold",
+                fontSize: "16px",
+              }}
+            >
+              -
+            </button>
+            <span
+              style={{
+                padding: "8px 20px",
+                fontWeight: "600",
+                minWidth: "50px",
+                textAlign: "center",
+              }}
+            >
+              {cantidad}
+            </span>
+            <button
+              onClick={() =>
+                setCantidad(Math.min(varianteSeleccionada.stock, cantidad + 1))
+              }
+              style={{
+                padding: "8px 15px",
+                backgroundColor: "#f3f4f6",
+                border: "none",
+                cursor: "pointer",
+                fontWeight: "bold",
+                fontSize: "16px",
+              }}
+            >
+              +
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Botón Añadir al Carrito */}
+      <button
+        onClick={handleAgregarCarrito}
+        disabled={varianteSeleccionada.stock === 0}
+        style={{
+          width: "100%",
+          padding: "14px",
+          backgroundColor: varianteSeleccionada.stock > 0 ? "#3b82f6" : "#9ca3af",
+          color: "white",
+          border: "none",
+          borderRadius: "8px",
+          fontWeight: "600",
+          fontSize: "15px",
+          cursor: varianteSeleccionada.stock > 0 ? "pointer" : "not-allowed",
+          transition: "background-color 0.2s",
+        }}
+        onMouseEnter={(e) => {
+          if (varianteSeleccionada.stock > 0) {
+            e.target.style.backgroundColor = "#2563eb";
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (varianteSeleccionada.stock > 0) {
+            e.target.style.backgroundColor = "#3b82f6";
+          }
+        }}
+      >
+        {varianteSeleccionada.stock > 0 ? "🛒 Añadir al carrito" : "Sin stock"}
+      </button>
+    </div>
+  );
+};
+
+// Componente principal
 export const ProductosList = () => {
   const [productos, setProductos] = useState([]);
   const [cargando, setCargando] = useState(true);
@@ -20,206 +327,45 @@ export const ProductosList = () => {
   }, []);
 
   if (cargando)
-    return <p style={{ textAlign: "center" }}>Cargando productos...</p>;
-  if (error)
-    return <p style={{ textAlign: "center", color: "red" }}>Error: {error}</p>;
+    return (
+      <div style={{ textAlign: "center", padding: "50px" }}>
+        <p style={{ fontSize: "18px", color: "#666" }}>Cargando productos...</p>
+      </div>
+    );
 
-  // Aplanar productos y variantes en un solo array
-  const productosConVariantes = [];
-  productos.forEach((producto) => {
-    producto.variantes.forEach((variante) => {
-      productosConVariantes.push({
-        productoId: producto.id,
-        productoNombre: producto.nombre,
-        productoDescripcion: producto.descripcion,
-        categoria: producto.categoria,
-        marca: producto.marca,
-        ...variante,
-      });
-    });
-  });
+  if (error)
+    return (
+      <div style={{ textAlign: "center", padding: "50px" }}>
+        <p style={{ fontSize: "18px", color: "#ef4444" }}>Error: {error}</p>
+      </div>
+    );
 
   return (
-    <div className="tienda-container" style={{ padding: "40px" }}>
-      <h2 style={{ textAlign: "center", marginBottom: "30px" }}>
-        Catálogo de Productos
+    <div style={{ padding: "40px", backgroundColor: "#f9fafb", minHeight: "100vh" }}>
+      <h2
+        style={{
+          textAlign: "center",
+          marginBottom: "40px",
+          fontSize: "32px",
+          fontWeight: "bold",
+          color: "#1f2937",
+        }}
+      >
+        📦 Catálogo de Productos
       </h2>
 
       <div
-        className="productos-grid"
         style={{
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
           gap: "30px",
+          maxWidth: "1400px",
+          margin: "0 auto",
         }}
       >
-        {productosConVariantes.map((item) => (
-          <div
-            key={`${item.productoId}-${item.id}`}
-            style={{
-              border: "1px solid #ccc",
-              borderRadius: "12px",
-              width: "280px",
-              padding: "20px",
-              boxShadow: "2px 2px 8px rgba(0,0,0,0.1)",
-            }}
-          >
-            {/* Badge de categoría */}
-            <div
-              style={{
-                backgroundColor: "#f3f4f6",
-                padding: "5px 10px",
-                borderRadius: "6px",
-                fontSize: "12px",
-                fontWeight: "600",
-                textAlign: "center",
-                marginBottom: "10px",
-                color: "#6b7280",
-              }}
-            >
-              {item.categoria}
-            </div>
-
-            {/* Título */}
-            <h3 style={{ textAlign: "center", marginBottom: "5px" }}>
-              {item.productoNombre}
-            </h3>
-
-            {/* Variante */}
-            <p
-              style={{
-                textAlign: "center",
-                fontWeight: "600",
-                color: "#3b82f6",
-                marginBottom: "10px",
-              }}
-            >
-              {item.nombre_variante}
-            </p>
-
-            {/* Descripción */}
-            <p
-              style={{
-                textAlign: "center",
-                color: "#666",
-                fontSize: "14px",
-                marginBottom: "15px",
-              }}
-            >
-              {item.productoDescripcion}
-            </p>
-
-            {/* Imagen */}
-            <img
-              src={item.imagen_url}
-              alt={item.nombre_variante}
-              style={{
-                width: "100%",
-                height: "180px",
-                objectFit: "cover",
-                borderRadius: "10px",
-                marginBottom: "15px",
-              }}
-              onError={(e) => {
-                e.target.src =
-                  "https://via.placeholder.com/280x180?text=Sin+Imagen";
-              }}
-            />
-
-            {/* Color */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "10px",
-                marginBottom: "15px",
-              }}
-            >
-              <span style={{ fontSize: "13px", color: "#666" }}>Color:</span>
-              <div
-                style={{
-                  width: "30px",
-                  height: "30px",
-                  borderRadius: "50%",
-                  backgroundColor: item.color_hex,
-                  border: "2px solid #ccc",
-                }}
-                title={item.color_hex}
-              />
-            </div>
-
-            {/* SKU y Marca */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                marginBottom: "15px",
-                fontSize: "12px",
-                color: "#666",
-              }}
-            >
-              <span>SKU: {item.sku}</span>
-              <span>{item.marca}</span>
-            </div>
-
-            {/* Precio y Stock */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                marginBottom: "15px",
-              }}
-            >
-              <p style={{ fontWeight: "bold", fontSize: "20px", color: "#333" }}>
-                {item.precio.toFixed(2)} €
-              </p>
-              <p
-                style={{
-                  fontSize: "13px",
-                  color: item.stock > 0 ? "#22c55e" : "#ef4444",
-                  fontWeight: "600",
-                }}
-              >
-                {item.stock > 0 ? `Stock: ${item.stock}` : "Sin stock"}
-              </p>
-            </div>
-
-            {/* Botón Añadir al Carrito */}
-            <button
-              onClick={() => {
-                alert(
-                  `Añadido: ${item.productoNombre} - ${item.nombre_variante}`
-                );
-              }}
-              disabled={item.stock === 0}
-              style={{
-                width: "100%",
-                padding: "12px",
-                backgroundColor: item.stock > 0 ? "#3b82f6" : "#9ca3af",
-                color: "white",
-                border: "none",
-                borderRadius: "8px",
-                fontWeight: "600",
-                cursor: item.stock > 0 ? "pointer" : "not-allowed",
-                transition: "background-color 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                if (item.stock > 0) {
-                  e.target.style.backgroundColor = "#2563eb";
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (item.stock > 0) {
-                  e.target.style.backgroundColor = "#3b82f6";
-                }
-              }}
-            >
-              {item.stock > 0 ? "Añadir al carrito" : "Sin stock"}
-            </button>
-          </div>
+        {productos.map((producto) => (
+          <ProductCard key={producto.id} producto={producto} />
         ))}
       </div>
     </div>
